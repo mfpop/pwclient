@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../../scss/Admin/Components/MenuTop.scss";
-import logo from "../../../assets/img/png/Logo-Dark1.png";
+import logo from "../../../assets/img/png/logo-dark.png";
 import { Button } from "antd";
 import {
   MenuUnfoldOutlined,

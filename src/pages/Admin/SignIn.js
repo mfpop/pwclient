@@ -2,8 +2,8 @@ import React from "react";
 import { Layout, Tabs } from "antd";
 
 import "../../scss/Admin/pages/SignIn.scss";
-import Logo from "../../assets/img/png/Logo-Dark.png";
-import RegisterForm from "./RegisterForm";
+import Logo from "../../assets/img/png/logo-dark.png";
+import RegisterForm from "../../components/Admin/RegisterForm/RegisterForm";
 
 export default function SignIn() {
   const { Content } = Layout;
