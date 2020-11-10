@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="250" height="50" viewBox="0 0 250 50">
+  <defs>
+    <clipPath id="clip-Web_1920_1">
+      <rect width="250" height="50"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_1" data-name="Web 1920 – 1" clip-path="url(#clip-Web_1920_1)">
+    <rect width="250" height="50" fill="#fff"/>
+    <rect id="Rectangle_7" data-name="Rectangle 7" width="250" height="50" fill="none"/>
+    <text id="VECTORSOFT_LMD" data-name="VECTORSOFT LMD" transform="translate(28)" fill="#3d3631" font-size="25" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="26">VECTORSOFT </tspan><tspan y="26" font-family="Righteous-Regular, Righteous" font-weight="400">LMD</tspan></text>
+    <g id="Rectangle_3" data-name="Rectangle 3" transform="translate(102 44)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="1" height="1" stroke="none"/>
+      <rect x="0.5" y="0.5" fill="none"/>
+    </g>
+    <g id="Rectangle_2" data-name="Rectangle 2" transform="matrix(0.875, 0.485, -0.485, 0.875, 20.053, 7.263)" fill="#ababab" stroke="#ababab" stroke-width="1">
+      <rect width="6" height="33" rx="3" stroke="none"/>
+      <rect x="0.5" y="0.5" width="5" height="32" rx="2.5" fill="none"/>
+    </g>
+    <text id="software_solution" data-name="software solution" transform="translate(131 24)" fill="#ababab" font-size="14" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="15">software solution</tspan></text>
+    <g id="Rectangle_8" data-name="Rectangle 8" transform="translate(5 33)" fill="#ababab" stroke="#ababab" stroke-linecap="round" stroke-width="1">
+      <rect width="122" height="6" rx="3" stroke="none"/>
+      <rect x="0.5" y="0.5" width="121" height="5" rx="2.5" fill="none"/>
+    </g>
+  </g>
+</svg>
