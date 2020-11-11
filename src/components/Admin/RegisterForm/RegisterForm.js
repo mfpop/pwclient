@@ -5,35 +5,30 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
 import "../../../scss/Admin/Components/RegisterForm.scss";
 
-
 export default function RegisterForm() {
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
     repeatPassword: "",
-    privacyPolicy: false
+    privacyPolicy: false,
+  });
+  const [formValid, setFormValid] = useState({
+    email: false,
+    password: false,
+    repeatPassword: false,
+    privacyPolicy: false,
   });
 
-  const changeForm = e => {
-    if (e.target.name === "privacyPolicy") {
-      setInputs({
-        ...inputs,
-        [e.target.name]: e.target.checked
-      })
-    } else {
-      setInputs({
-        ...inputs,
-        [e.target.name]: e.target.value
-      })
-    }
-    console.log(inputs);
+  const changeForm = (e) => {};
+
+  const inputValidation = (e) => {
+    const { type, name } = e.target;
   };
 
-  const register = e => {
+  const register = (e) => {
     e.preventDefault();
     console.log(inputs);
   };
-
 
   return (
     <Form className="register-form" onSubmit={register} onChange={changeForm}>
@@ -44,6 +39,7 @@ export default function RegisterForm() {
           name="email"
           placeholder="email"
           className="register-form__input"
+          onChange={inputValidation}
           value={inputs.email}
         />
       </Form.Item>
@@ -54,6 +50,7 @@ export default function RegisterForm() {
           name="password"
           placeholder="password"
           className="register-form__input"
+          onChange={inputValidation}
           value={inputs.password}
         />
       </Form.Item>
@@ -64,12 +61,12 @@ export default function RegisterForm() {
           name="repeatPassword"
           placeholder="confirm password"
           className="register-form__input"
+          onChange={inputValidation}
           value={inputs.repeatPassword}
         />
       </Form.Item>
       <Form.Item>
-        <Checkbox name="privacyPolicy"
-          checked={inputs.privacyPolicy}>
+        <Checkbox name="privacyPolicy" checked={inputs.privacyPolicy}>
           I accept the privacy policy
         </Checkbox>
       </Form.Item>
@@ -78,6 +75,6 @@ export default function RegisterForm() {
           Submit request
         </Button>
       </Form.Item>
-    </Form >
+    </Form>
   );
 }
