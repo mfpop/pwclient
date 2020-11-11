@@ -140,6 +140,26 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/",
+    component: LayoutPublic,
+    exact: false,
+    routes: [
+      {
+        path: "/",
+        component: Home,
+        exact: true,
+      },
+      {
+        path: "/contacts",
+        component: Contact,
+        exact: true,
+      },
+      {
+        component: Error404,
+      },
+    ],
+  },
 ];
 
 export default routes;
