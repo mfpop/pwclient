@@ -1,7 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { Form, Input, Checkbox, Button } from "antd";
+import { Form, Input, Checkbox, Button, notification } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import {
+  emailValidation,
+  minLengthValidation,
+} from "../../../utils/formsValidation";
 
 import "../../../scss/Admin/Components/RegisterForm.scss";
 
@@ -19,19 +23,59 @@ export default function RegisterForm() {
     privacyPolicy: false,
   });
 
-  const changeForm = (e) => {};
+  const changeForm = (e) => {
+    if (e.target.name === "privatePolicy") {
+      setInputs({
+        ...inputs,
+        [e.target.name]: e.target.checked,
+      });
+    } else {
+      setInputs({
+        ...inputs,
+        [e.target.name]: e.target.value,
+      });
+    }
+  };
 
   const inputValidation = (e) => {
     const { type, name } = e.target;
+    if (type === "email") {
+      setFormValid({ ...formValid, [name]: emailValidation(e.target) });
+    }
+
+    if (type === "password") {
+      setFormValid({ ...formValid, [name]: minLengthValidation(e.target, 6) });
+    }
+
+    if (type === "checkbox") {
+      setFormValid({ ...formValid, [name]: e.target.checked });
+    }
   };
 
-  const register = (e) => {
+  const register = e => {
     e.preventDefault();
-    console.log(inputs);
+
+    const { email, password, repeatPassword, privacyPolicy } = formValid;
+    const emailVal = inputs.email;
+    const passwordVal = inputs.password;
+    const repeatPasswordVal = inputs.repeatPassword;
+    const privacyPolicyVal = inputs.repeatPassword;
+
+    if (!emailVal || !passwordVal || !repeatPasswordVal || !privacyPolicyVal) {
+      notification["error"]({
+        message: "All fields ar requiered!",
+      });
+    } else {
+      if (passwordVal !== repeatPasswordVal) {
+        notification['error']({
+          message: "The password has to be iguals!"
+        })
+      }
+    }
   };
 
   return (
-    <Form className="register-form" onSubmit={register} onChange={changeForm}>
+    <Form className="register-form" onSubmitCapture={register} onChange={changeForm}>
       <Form.Item>
         <Input
           prefix={<UserOutlined style={{ color: "rgba(0,0,0,.25)" }} />}
@@ -66,7 +110,12 @@ export default function RegisterForm() {
         />
       </Form.Item>
       <Form.Item>
-        <Checkbox name="privacyPolicy" checked={inputs.privacyPolicy}>
+        <Checkbox
+          name="privacyPolicy"
+          on
+          change={inputValidation}
+          checked={inputs.privacyPolicy}
+        >
           I accept the privacy policy
         </Checkbox>
       </Form.Item>
